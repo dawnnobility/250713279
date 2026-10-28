@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="id" lang="id">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Pendaftaran Seminar</title>
+    <link rel="stylesheet" type="text/css" href="tugas2.css" />
+</head>
+<body>
+    <h1>Pendaftaran Seminar</h1>
+
+    <p class="intro">
+        Lengkapi formulir ini untuk mengikuti seminar.
+        Pastikan data peserta dan pilihan topik sudah sesuai.
+    </p>
+
+    <form action="" method="post" enctype="multipart/form-data">
+        <h2>Data Peserta</h2>
+
+        <table class="form-table" cellspacing="0" cellpadding="8">
+            <tr>
+                <td class="label-cell">
+                    <label for="nama">Nama Lengkap</label>
+                </td>
+                <td>
+                    <input type="text" id="nama" name="nama" size="30"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label-cell">
+                    <label for="nim">NPM</label>
+                </td>
+                <td>
+                    <input type="text" id="nim" name="nim" size="30"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label-cell">Jenis Kelamin</td>
+                <td>
+                    <input type="radio" id="laki" name="jk" value="Laki-Laki"/>
+                    <label for="laki">Laki-laki</label>
+
+                    <input type="radio" id="perempuan" name="jk" value="Perempuan"/>
+                    <label for="perempuan">Perempuan</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label-cell">
+                    <label for="prodi">Program Studi</label>
+                </td>
+                <td>
+                    <select id="prodi" name="prodi">
+                        <option value="Informatika">Informatika</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <h2>Pilihan Seminar</h2>
+
+        <table class="form-table" cellspacing="0" cellpadding="8">
+            <tr>
+                <td class="label-cell">Jenis Tiket</td>
+                <td>
+                    <input type="radio" id="reguler" name="tiket" value="Reguler"/>
+                    <label for="reguler">Reguler</label>
+
+                    <input type="radio" id="vip" name="tiket" value="VIP"/>
+                    <label for="vip">VIP</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label-cell">Topik Seminar</td>
+                <td>
+                    <p class="topic-item">
+                        <input type="checkbox" id="webdev" name="topik" value="Web Development"/>
+                        <label for="webdev">Web Development</label>
+                    </p>
+
+                    <p class="topic-item">
+                        <input type="checkbox" id="datascience" name="topik" value="Data Science"/>
+                        <label for="datascience">Data Science</label>
+                    </p>
+
+                    <p class="topic-item">
+                        <input type="checkbox" id="ai" name="topik" value="Artificial Intelligence"/>
+                        <label for="ai">Artificial Intelligence</label>
+                    </p>
+
+                    <p class="note">
+                        Pilih topik yang ingin kamu pelajari.
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        <h2>Informasi Tambahan</h2>
+
+        <table class="form-table" cellspacing="0" cellpadding="8">
+            <tr>
+                <td class="label-cell">
+                    <label for="alasan">Alasan Mengikuti Seminar</label>
+                </td>
+                <td>
+                    <textarea id="alasan" name="alasan"
+                        rows="5" cols="40"></textarea>
+                    <p class="note">
+                        Ceritakan tujuanmu mengikuti kegiatan ini.
+                    </p>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label-cell">
+                    <label for="bukti">Bukti Pembayaran</label>
+                </td>
+                <td>
+                    <input type="file" id="bukti" name="bukti"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="button-cell">
+                    <input type="submit" name="simpan" value="Kirim Pendaftaran"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,68 @@
+body {
+    margin: 20px;
+    background-color: #f5f5f5;
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+h1 {
+    color: #34495e;
+    font-size: 24px;
+}
+
+.intro {
+    margin-bottom: 15px;
+}
+
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+.form-table td {
+    border: 1px solid #cccccc;
+    padding: 8px;
+}
+
+.label-cell {
+    width: 30%;
+    background-color: #eeeeee;
+    font-weight: bold;
+    vertical-align: top;
+}
+
+input[type="text"],
+input[type="password"],
+select,
+textarea {
+    padding: 4px;
+    border: 1px solid #bbbbbb;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.choice-title {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.note {
+    color: #666666;
+    font-size: 12px;
+}
+
+.button-cell {
+    text-align: center;
+    background-color: #eeeeee;
+}
+
+input[type="submit"] {
+    padding: 5px 10px;
+    background-color: #34495e;
+    color: #ffffff;
+    border: 1px solid #263746;
+    font-family: inherit;
+    font-size: 14px;
+}
