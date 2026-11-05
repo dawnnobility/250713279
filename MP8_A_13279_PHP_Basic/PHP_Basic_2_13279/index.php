@@ -1,43 +1,43 @@
 <?php
 
-    if ($_POST) {
-        $bayaran = $_POST['bayaran'] ?? '';
-        $undian = $_POST['undian'] ?? '';
-        $harga = 500000;
-        $message = array();
-        $message2 = "";
-        $bayarankembali = 0;
-        if(empty($bayaran) || empty($undian)) {
-            $message[] = "Harap lengkapi semua data.";
-        } else {
-            if (!is_preg_match("/^[0-9]+$/", $bayaran) || !preg_match("/^[0-9]+$/", $undian)) {
-                $message[] = "Jumlah yang dibayar atau undian hanya boleh mengandung angka.";
-            }
+if ($_POST) {
+    $bayaran = $_POST['bayaran'] ?? '';
+    $undian = $_POST['undian'] ?? '';
+    $harga = 500000;
+    $message = array();
+    $message2 = "";
+    $bayarankembali = 0;
+
+    if (empty($bayaran) || empty($undian)) {
+        $message[] = "Harap lengkapi semua data.";
+    } else {
+        if (!preg_match("/^[0-9]+$/", $bayaran) || !preg_match("/^[0-9]+$/", $undian)) {
+            $message[] = "Jumlah yang dibayar atau undian hanya boleh mengandung angka.";
         }
-        
-        if(!empty($messege)) {
-            foreach($message as $msg) {
-                echo "<p style='color: red;'>!! '' . htmlspecialchars($msg) . '' !!</p>";
+    }
+
+    if (!empty($message)) {
+        foreach ($message as $msg) {
+            echo '<p style="color: red;">!! ' . htmlspecialchars($msg) . ' !!</p>';
+        }
+    } else {
+        function undian($undian) {
+            switch ($undian) {
+                case 1:
+                    $diskon = 0.10;
+                    break;
+                case 2:
+                    $diskon = 0.20;
+                    break;
+                case 3:
+                    $diskon = 0.30;
+                    break;
+                default:
+                    $diskon = 0;
+                    break;
             }
-        } else {
-            function undian($undian) {
-                switch ($undian) {
-                    case 1:
-                        $diskon = 0.10;
-                        break;
-                    case 2:
-                        $diskon = 0.20;
-                        break;
-                    case 3:
-                        $diskon = 0.30;
-                        break;
-                    default:
-                        $diskon = 0;
-                        break;
-                }
-                return $diskon;
-            }
-        
+            return $diskon;
+        }
 
         $diskon = undian($undian);
 
@@ -56,33 +56,32 @@
             }
         }
 
-        $bayarkembali = pembayaran($bayaran, $totalbayar);
+        $bayarankembali = pembayaran($bayaran, $totalbayar);
 
-        if($bayarkembali === null) {
+        if ($bayarankembali === null) {
             $message2 = "Jumlah yang dibayar kurang dari total pembayaran. Silahkan bayar sesuai jumlah yang ditentukan.";
             $bayarankembali = 0;
         }
 
-        if(!empty($message2)) {
-            echo "<p style='color: red;'>!! '' . htmlspecialchars($message2) . '' !!</p>";
+        if (!empty($message2)) {
+            echo '<p style="color: red;">!! ' . htmlspecialchars($message2) . ' !!</p>';
         } else {
             echo "<h2>Informasi Pembayaran</h2>";
             echo "<p><strong>Jumlah yang dibayar: </strong> Rp " . htmlspecialchars($bayaran) . "</p>";
-            echo "<p><strong>Undian: </strong> Rp " . htmlspecialchars($undian) . "</p>";
+            echo "<p><strong>Undian: </strong> " . htmlspecialchars($undian) . "</p>";
 
-            if($diskon == 0) {
+            if ($diskon == 0) {
                 echo "<p>Maaf nomor undian tidak valid. Tidak ada diskon yang diberikan. </p>";
             } else {
-                echo "<p>Selamat! Anda mendapatkan diskon " . (htmlspecialchars($diskon * 100)) . "% 
-                berkat nomor undian Anda.</p>";
+                echo "<p>Selamat! Anda mendapatkan diskon " . htmlspecialchars($diskon * 100) . "% berkat nomor undian Anda.</p>";
             }
-            echo '<p style="font-weight: bold; font-size: 18px;">Total pembayaran : Rp ' . 
-            htmlspecialchars($totalbayar) . '</p>';
-            echo '<p style="font-weight: bold; font-size: 18px;">Kembalian : Rp ' .
-            htmlspecialchars($bayarankembali) . '</p>';
+
+            echo '<p style="font-weight: bold; font-size: 18px;">Total pembayaran : Rp ' . htmlspecialchars($totalbayar) . '</p>';
+            echo '<p style="font-weight: bold; font-size: 18px;">Kembalian : Rp ' . htmlspecialchars($bayarankembali) . '</p>';
         }
-        }
-    } else {
-        echo "Silahkan isi formulir untuk melakukan pembayaran.";
     }
+} else {
+    echo "Silahkan isi formulir untuk melakukan pembayaran.";
+}
+
 ?>
